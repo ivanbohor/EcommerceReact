@@ -1,5 +1,4 @@
-import "./App.css";
-import Product from "./components/Products";
+import Product from "./pages/Product";
 import Home from "./pages/Home";
 
 const App = () => {
