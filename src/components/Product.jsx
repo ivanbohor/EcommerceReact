@@ -1,8 +1,10 @@
+import { Button, ButtonGroup, } from "@material-ui/core";
 import {
     FavoriteBorderOutlined,
     SearchOutlined,
     ShoppingCartOutlined,
   } from "@material-ui/icons";
+import { useState } from "react";
   import styled from "styled-components";
   
   const Info = styled.div`
@@ -64,8 +66,30 @@ import {
       transform: scale(1.1);
     }
   `;
+  const ItemCount = styled.div`
+  z-index: 3;
+ `
+
+  const Product = ({item}) => {
+
+    const [counter, setCounter] = useState(1);
+
+    const incrementar = () => {
+      if(item.stock >counter) {  
+        setCounter(counter+1)
+      }else{
+        alert("no hay mas stock")
+      }
+    }
   
-  const Product = ({ item }) => {
+    const decrementar = () => {
+      if (counter>1){
+        setCounter(counter-1)
+      } else{
+        alert("no se puede disminuir mas")
+      }
+    }
+
     return (
       <Container>
         <Circle />
@@ -81,6 +105,13 @@ import {
             <FavoriteBorderOutlined />
           </Icon>
         </Info>
+        <ItemCount stock={item.stock}>
+          <ButtonGroup disableElevation variant="contained" color="primary">
+            <Button onClick={decrementar}>-</Button>
+            <Button onClick={incrementar}>+</Button>
+            <h2>{counter}</h2>
+          </ButtonGroup>
+        </ItemCount>
       </Container>
     );
   };
