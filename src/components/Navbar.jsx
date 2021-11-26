@@ -1,6 +1,7 @@
 import { Badge } from '@material-ui/core';
-import { Search, ShoppingCartOutlined } from '@material-ui/icons';
+import { Category, Search, ShoppingCartOutlined } from '@material-ui/icons';
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -50,6 +51,9 @@ const MenuItem = styled.div`
 font-size:14px;
 cursor:pointer;
 `
+const Categorys = styled.div`
+
+`
 
 
 const Navbar = () => {
@@ -61,7 +65,8 @@ const Navbar = () => {
                    <SearchContainer> <Input/> <Search style={{color:"gray", fontSize:16}}/> 
                     </SearchContainer>
                 </Left>
-               <Center><Logo>MELI Dos.Cero</Logo> </Center>
+               <Center><Link to="/"> <Logo>MELI Dos.Cero</Logo> </Link> </Center>
+               <Categorys> <Link to="/category"> OULET! </Link> </Categorys>
                <Right> 
                     <MenuItem>Registro</MenuItem>
                     <MenuItem>Iniciar Sesion</MenuItem>

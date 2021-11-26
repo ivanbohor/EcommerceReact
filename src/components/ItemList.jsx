@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 
-const Products = () => {
+const ItemList = () => {
 
   return (
     <Container>
@@ -23,4 +23,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ItemList;

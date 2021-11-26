@@ -5,8 +5,8 @@ import {
     ShoppingCartOutlined,
   } from "@material-ui/icons";
 import { useState } from "react";
-  import styled from "styled-components";
-  
+import { Link } from "react-router-dom";
+import styled from "styled-components";
   const Info = styled.div`
     opacity: 0;
     width: 100%;
@@ -96,7 +96,7 @@ import { useState } from "react";
         <Image src={item.img} />
         <Info>
           <Icon>
-            <ShoppingCartOutlined />
+            <Link to="/detail:itemId"> <ShoppingCartOutlined/> </Link>
           </Icon>
           <Icon>
             <SearchOutlined />
