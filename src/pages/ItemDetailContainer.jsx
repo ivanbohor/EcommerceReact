@@ -1,8 +1,10 @@
 
 import { Add, Remove } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
+import { pedirDatos } from "../helpers/pedirDatos";
 
 const Container = styled.div``;
 
@@ -105,19 +107,30 @@ const Button = styled.button`
       background-color: #f8f4f4;
   }
 `;
-
 const ItemDetailContainer = () => {
+const [item,setItem] = useState({})
+const [loading, setLoading] = useState(false)
+const { itemId } = useParams()
+
+  useEffect(()=>{
+    setLoading(true) 
+    pedirDatos() 
+    .then((response) =>
+    {setItem(response.find(prod=> prod.id === Number(itemId))) 
+    }) 
+    .finally(()=>{
+      setLoading(false)})   
+   }, [itemId])
   return (
     <Container>
     <Wrapper>
       <ImgContainer>
-        <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+        <Image src={item.img} />
       </ImgContainer>
       <InfoContainer>
         <Title>Denim Jumpsuit</Title>
         <Desc>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          
           condimentum ac, volutpat ornare.
         </Desc>
         <Price>$ 20</Price>
@@ -149,11 +162,9 @@ const ItemDetailContainer = () => {
         </AddContainer>
       </InfoContainer>
     </Wrapper>
-    
   </Container>
   );
 };
-
 export default ItemDetailContainer;
 
 

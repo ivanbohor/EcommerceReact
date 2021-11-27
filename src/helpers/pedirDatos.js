@@ -1,9 +1,9 @@
-import data from "../data";
+import { popularProducts } from "../data";
 
 export const pedirDatos = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(data);
+      resolve(popularProducts);
     }, 1000);
   });
 };

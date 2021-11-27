@@ -96,7 +96,7 @@ import styled from "styled-components";
         <Image src={item.img} />
         <Info>
           <Icon>
-            <Link to="/detail:itemId"> <ShoppingCartOutlined/> </Link>
+            <Link to={`/detail/${item.id}`}> <ShoppingCartOutlined/> </Link>
           </Icon>
           <Icon>
             <SearchOutlined />
