@@ -8,7 +8,6 @@ export const ItemDetailList = () => {
     
     const [item, setItem] = useState()
     const [loading, setLoading] = useState(false)
-
     const { itemId } = useParams()
 
     useEffect(()=>{

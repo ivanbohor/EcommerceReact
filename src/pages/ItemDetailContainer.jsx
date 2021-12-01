@@ -3,6 +3,7 @@ import { Add, Remove } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import { ItemCount } from "../components/ItemCount";
 import Navbar from "../components/Navbar";
 import { pedirDatos } from "../helpers/pedirDatos";
 
@@ -128,12 +129,12 @@ const { itemId } = useParams()
         <Image src={item.img} />
       </ImgContainer>
       <InfoContainer>
-        <Title>Denim Jumpsuit</Title>
+        <Title>{item.name}</Title>
         <Desc>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
           condimentum ac, volutpat ornare.
         </Desc>
-        <Price>$ 20</Price>
+        <Price>$ {item.price}</Price>
         <FilterContainer>
           <Filter>
             <FilterTitle>Color</FilterTitle>
@@ -153,11 +154,7 @@ const { itemId } = useParams()
           </Filter>
         </FilterContainer>
         <AddContainer>
-          <AmountContainer>
-            <Remove />
-            <Amount>1</Amount>
-            <Add />
-          </AmountContainer>
+        <ItemCount max={item.stock}  />
           <Button>Agregar al Carrito</Button>
         </AddContainer>
       </InfoContainer>

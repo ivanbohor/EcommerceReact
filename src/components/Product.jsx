@@ -72,24 +72,6 @@ import styled from "styled-components";
 
   const Product = ({item}) => {
 
-    const [counter, setCounter] = useState(1);
-
-    const incrementar = () => {
-      if(item.stock >counter) {  
-        setCounter(counter+1)
-      }else{
-        alert("no hay mas stock")
-      }
-    }
-  
-    const decrementar = () => {
-      if (counter>1){
-        setCounter(counter-1)
-      } else{
-        alert("no se puede disminuir mas")
-      }
-    }
-
     return (
       <Container>
         <Circle />
@@ -105,13 +87,7 @@ import styled from "styled-components";
             <FavoriteBorderOutlined />
           </Icon>
         </Info>
-        <ItemCount stock={item.stock}>
-          <ButtonGroup disableElevation variant="contained" color="primary">
-            <Button onClick={decrementar}>-</Button>
-            <Button onClick={incrementar}>+</Button>
-            <h2>{counter}</h2>
-          </ButtonGroup>
-        </ItemCount>
+        
       </Container>
     );
   };
